@@ -1,0 +1,50 @@
+Inicio
+	precio = 1
+	numud = 0
+	descuento = 0
+	importe = 0
+	udtotales = 0
+	importefinal = 0
+	descuentoporcentaje = 0
+	descuentonum = 0
+	
+	Mientras precio != 0 hacer
+		Escribe "Introduce el precio unitario en euros (0 para terminar): "
+		Lee precio
+			Mientras precio <= 0 hacer
+				Escribe "Precio debe ser positivo"
+				Escribe "Introduce el precio unitario en euros (0 para terminar): "
+				Lee precio
+		Escribe "Introduce el número de unidades: "
+		Lee numud
+		Mientras numud <= 0 hacer
+				Escribe "Número de unidades debe ser positivo"
+				Escribe "Introduce el número de unidades: "
+				Lee numud
+		importe = importe + precio*numud
+		udtotales = udtotales + numud
+	
+	Si importe < 50 entonces
+		descuento = 1
+		descuentoporcentaje = 0
+		descuentonum = 0
+	
+	Si importe >= 50 and importe < 100 entonces
+		descuento = 0.95
+		descuentoporcentaje = 5
+		descuentonum = importe*0.05
+		
+	Si importe >= 100 entonces
+		descuento = 0.9
+		descuentoporcentaje = 10
+		descuentonum = importe*0.1
+		
+	importefinal = importe*descuento
+	
+	Escribe "RESUMEN DE LA COMPRA"
+	Escribe "Unidades compradas: " + udtotales
+	Escribe "Importe antes del descuento: " + importe + "euros"
+	Escribe "Descuento aplicado: " + descuentoporcentaje + "%"
+	Escribe "Descuento: " + descuentonum + "euros"
+	Escribe "Importe final: " + importefinal + "euros"
+Fin
